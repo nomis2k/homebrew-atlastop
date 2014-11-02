@@ -2,9 +2,9 @@ require 'formula'
 
 class Root6 < Formula
   homepage 'http://root.cern.ch'
-  url 'ftp://root.cern.ch/root/root_v6.02.00.source.tar.gz'
-  version '6.02.00'
-  sha1 '98449e9a4d91cc487c5ae59c1128d20286f134cc'
+  url 'ftp://root.cern.ch/root/root_v6.02.01.source.tar.gz'
+  version '6.02.01'
+  sha1 '1357e3ed8cbdebe267092922d83e8f48f4f7fc48'
 
   depends_on :x11
   depends_on :python
@@ -22,6 +22,7 @@ class Root6 < Formula
       --prefix=#{prefix}
       --etcdir=#{prefix}/etc/root
       --mandir=#{man}
+      --enable-roofit
     ]
 
     system "./configure", *args
