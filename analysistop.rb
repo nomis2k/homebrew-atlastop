@@ -2,9 +2,9 @@ require "formula"
 
 class Analysistop < Formula
   homepage ""
-  url "http://atlas-computing.web.cern.ch/atlas-computing/links/kitsDirectory/ASG/slc6/AnalysisTop_2.0.15_x86_64-slc6-gcc47-opt.tgz"
-  version '2.0.15'
-  sha1 "31962618e3060c598eeb0dc34c3d524058905b6d"
+  url "http://atlas-computing.web.cern.ch/atlas-computing/links/kitsDirectory/ASG/slc6/AnalysisTop_2.3.12_x86_64-slc6-gcc48-opt.tgz"
+  version '2.3.12'
+  sha1 "1a19f26b632df5cd996fc084f1e2db6d8d7ee4f9"
 
   depends_on :x11
   depends_on "root6"
@@ -19,10 +19,7 @@ class Analysistop < Formula
     out.puts "source `root-config --prefix`/libexec/thisroot.sh"
 
     #We don't want Asg_root since that takes root from cvmfs
-    #We don't want Asg_gccxml since we're using root6
-    #Asg_BAT has some scary root6 issue so remove that and KLFitter (which needs BAT) for now 
-    #OxbridgeKinetics failed too
-    out.puts "rm -rf Asg_root Asg_gccxml Asg_BAT KLFitter Oxbridgekinetics"
+    out.puts "rm -rf Asg_root Asg_OxbridgeKinetics QuickAna ZMassConstraint"
     out.puts "cd RootCore"
     out.puts "rm load_packages* packages rootcore_config"
     out.puts "cd .."
